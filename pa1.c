@@ -18,7 +18,7 @@ int main(int argc, char *argv[]){
 	}
 
 	// Read the file containing the DFA simulation specifications
-	File *infile = fopen(argv[1], "r");
+	FILE *infile = fopen(argv[1], "r");
 	if(infile ==NULL){
 		fprintf(stderr, "Error: Could not open file %s for reading\n", argv[1]);
 		exit(1);
@@ -27,8 +27,9 @@ int main(int argc, char *argv[]){
 	// Read first line containing number of states
 	int num_states = 0;
 
-	fscanf(infile, "%d" num_states);
+	fscanf(infile, "%d", &num_states);
 
-	printf("Number of states: %d", num_states);
+	printf("Number of states: %d\n", num_states);
 
+	//Correctly reads in file :-) 
 }
