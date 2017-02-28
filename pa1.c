@@ -42,14 +42,21 @@ int main(int argc, char *argv[]){
 		int next_state = 0;
 		char input;
 		fscanf(infile, "%d '%c' %d", &curr_state, &input, &next_state);
+		
+		// Checking which element of the alphabet
+		for(int j =0; j< num_alpha; j++){
+			if(strcmp(input, alpha[i])== 0){
+				transition_func[j][curr_state-1] = next_state;
+				break;
+			}
+		}
 	}
+	int start_state = 0;
+	fscanf(infile, "%d", start_state);
 
-	//TODO: Read in the transitions (for loop with num_transitions)
-	// Store in 2-d array(num_statesX num_alpha)
+	///TAke in the accept tates string, tokenize by space, update counter, change each token to
+	// and put into an int array to hold all the accept states.
 
-	//TODO: Read in start state
-
-	//TODO: Read in accept states (store in an array)
 
 	//TODO: Read in (for loop) the strings
 
