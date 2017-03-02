@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <limits.h>
 
 // TODO: Function prototypes
 
@@ -29,30 +29,41 @@ int main(int argc, char *argv[]){
 	fscanf(infile, "%d", &num_states);
 	printf("Number of states: %d\n", num_states);
 
-	//Gettting the alphabet
-	char *alpha = NULL; //TODO: How to init this?
+	//Get the alphabet
+	char *alpha = malloc(100*sizeof(char));
 	fscanf(infile, "%s", alpha);
-	int num_alpha = strlen(alpha);
+	//printf("%c\n", alpha[0]);
 
+	//Get the number of characters in the aplhabet
+	int num_alpha = strlen(alpha);
+	printf("num_alpha = %d\n", num_alpha);
+	
 	int num_transitions = num_alpha * num_states;
-	int transition_func[num_alpha][num_states];
+	int transition_array[num_alpha][num_states];
 
 	for(int i = 0; i< num_transitions; i++){
 		int curr_state = 0;
 		int next_state = 0;
 		char input;
+
+		//Get the transition
 		fscanf(infile, "%d '%c' %d", &curr_state, &input, &next_state);
 		
 		// Checking which element of the alphabet
 		for(int j =0; j< num_alpha; j++){
-			if(strcmp(input, alpha[i])== 0){
-				transition_func[j][curr_state-1] = next_state;
+			printf("alpha[j] = %c %s\n", &alpha[j], input);
+			int ret = strcmp(input, &alpha[i]);
+			if(ret ==0){
+				// Put the input into the array
+
+				transition_array[j][curr_state-1] = next_state;
+				printf(" element: %d", transition_array[j][curr_state-1]);
 				break;
 			}
 		}
 	}
 	int start_state = 0;
-	fscanf(infile, "%d", start_state);
+	fscanf(infile, "%d", &start_state);
 
 	///TAke in the accept tates string, tokenize by space, update counter, change each token to
 	// and put into an int array to hold all the accept states.
@@ -62,4 +73,5 @@ int main(int argc, char *argv[]){
 
 	//TODO: 
 
+	return 0;
 }
