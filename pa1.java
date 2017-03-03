@@ -43,9 +43,8 @@ public class pa1{
 
         //Array to hold transitions
         int[][] transition_array = new int[num_alpha][num_states]; 
-
+        //Loop to populate the array of transitions
         for(int i=0; i<num_transitions; i++){
-            
             //Read in the transition
             int curr_state = Integer.parseInt(file_sc.next());
             String input = file_sc.next();
@@ -53,24 +52,30 @@ public class pa1{
 
             //Get rid of ''
             String clean_input = input.replace("'", "");
-            //System.out.println(clean_input);
-
+            
             for(int j=0; j< num_alpha; j++){
                 if(clean_input.compareTo(Character.toString(alphabet.charAt(j)))==0){
-
                     transition_array[j][curr_state-1] = next_state;
-                    //System.out.println(transition_array[j][curr_state-1]);
                     break;
                 }
             }
         }
-        
+        /*Prints the array
         for(int i=0; i< num_alpha; i++){
             System.out.println("\n");
             for(int j=0; j<num_states; j++){
                 System.out.println(transition_array[i][j]);
             }
-        }
+        }*/
+
+        int start_state = Integer.parseInt(file_sc.next());
+        System.out.println(start_state);
+
+        //TODO: Get the set of accept states
+
+        //TODO: Get the input strings to simulate then check against the array
+
+
 
         file_sc.close();
 
