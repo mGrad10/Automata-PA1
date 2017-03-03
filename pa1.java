@@ -71,7 +71,7 @@ public class pa1{
         int start_state = Integer.parseInt(file_sc.next());
         System.out.println(start_state);
 
-        //TODO: Get the set of accept states
+        //Get the set of accept states
         String temp = file_sc.nextLine();
         String accept_temp = file_sc.nextLine();
         System.out.println(accept_temp);
@@ -81,16 +81,32 @@ public class pa1{
             System.out.println(accept_states[i]);
         }
         
-        //TODO: Get the input strings to simulate then check against the array
-        /*while(file_sc.hasNextLine()){
-            String input = file_sc.nextLine();
-            int length = input.length();
+        //Get the input strings to simulate then check against the array
+        while(file_sc.hasNextLine()){
+            String input_string = file_sc.nextLine();
+            int length = input_string.length();
             int current = start_state;
             for(int i = 0; i < length; i++){
-                
+                for(int j = 0; j < num_alpha; j++){
+                    if(input_string.charAt(i) == alphabet.charAt(j)){
+                        current = transition_array[j][current-1];
+                        break;
+                    }
+                }
             }
+            boolean accept = false;
+            for(int i = 0; i < num_accept; i++){
+                if(current == Integer.parseInt(accept_states[i])){
+                    accept = true;
+                    break;
+                }
+            }
+            if(accept)
+                System.out.println("Accept");
+            else
+                System.out.println("Reject");
         }
-        */
+        
 
 
         file_sc.close();
