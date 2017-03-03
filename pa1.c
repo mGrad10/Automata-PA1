@@ -51,8 +51,8 @@ int main(int argc, char *argv[]){
 		
 		// Checking which element of the alphabet
 		for(int j =0; j< num_alpha; j++){
-			printf("alpha[j] = %c %s\n", &alpha[j], input);
-			int ret = strcmp(input, &alpha[i]);
+			printf("alpha[j] = %c %c\n", alpha[j], input);
+			int ret = strcmp(input, alpha[i]);
 			if(ret ==0){
 				// Put the input into the array
 
