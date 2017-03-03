@@ -72,7 +72,15 @@ public class pa1{
         System.out.println(start_state);
 
         //TODO: Get the set of accept states
-
+        String temp = file_sc.nextLine();
+        String accept_temp = file_sc.nextLine();
+        System.out.println(accept_temp);
+        String[] accept_states = accept_temp.split(" ");
+        int num_accept = accept_states.length;
+        for(int i = 0; i < num_accept; i++){
+            System.out.println(accept_states[i]);
+        }
+        
         //TODO: Get the input strings to simulate then check against the array
 
 
