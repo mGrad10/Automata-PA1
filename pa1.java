@@ -82,7 +82,15 @@ public class pa1{
         }
         
         //TODO: Get the input strings to simulate then check against the array
-
+        /*while(file_sc.hasNextLine()){
+            String input = file_sc.nextLine();
+            int length = input.length();
+            int current = start_state;
+            for(int i = 0; i < length; i++){
+                
+            }
+        }
+        */
 
 
         file_sc.close();

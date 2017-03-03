@@ -51,31 +51,23 @@ int main(int argc, char *argv[]){
 		
 		// Checking which element of the alphabet
 		for(int j =0; j< num_alpha; j++){
-            printf("alpha[j] = %c %s\n", &alpha[j], input);
-            int ret = strcmp(input, &alpha[i]);
-            if(ret ==0){
+			printf("alpha[j] = %c %c\n", alpha[j], input);
+			int ret = strcmp(input, alpha[i]);
+			if(ret ==0){
 				// Put the input into the array
 
 				transition_array[j][curr_state-1] = next_state;
-				printf(" element: %d", transition_array[j][curr_state-1]);;
+				printf(" element: %d", transition_array[j][curr_state-1]);
 				break;
 			}
-		}
-	}
-    
-	int start_state = 0;
-	fscanf(infile, "%d", &start_state);
-    
-
-    
 
 	///TAke in the accept tates string, tokenize by space, update counter, change each token to
 	// and put into an int array to hold all the accept states.
-
+	//TODO: 
 
 	//TODO: Read in (for loop) the strings
 
 	//TODO:
-    
+
 	return 0;
 }
